@@ -52,7 +52,10 @@ app.use(
 // 5. Serving static files
 app.use(express.static(`${__dirname}/public`));
 
-app.use("/api/v1/electricity", require("./routes/userRoutes"));
+// app.use("/api/v1/electricity", require("./routes/userRoutes"));
+app.use("/api/v1/users", require("./routes/userRoutes"));
+app.use("/api/v1/transaction", require("./routes/transactionRoutes"));
+
 
 // this will not run if request-response cycle ended in above routes
 app.all("*", (req, res, next) => {

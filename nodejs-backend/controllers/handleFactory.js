@@ -55,3 +55,4 @@ exports.getOne = (Model) =>
       data: { docs },
     });
   });
+

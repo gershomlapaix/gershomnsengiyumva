@@ -4,10 +4,13 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
+      unique: true,
     },
-    id: {
+    meterNumber: {
+      required: true,
       type: Number,
-      maxlength: [16, "The maximum number must be 16"],
+      maxlength: 6,
+      unique: true,
     },
     active: {
       type: Boolean,

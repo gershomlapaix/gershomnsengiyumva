@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const catchAsync = require("../utils/catchAsync");
 const User = require("./../models/User");
-const AppError = require("./../utils/appError");
+const AppError = require("./../utils/AppError");
 
 const signToken = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
@@ -44,4 +44,37 @@ exports.login = catchAsync(async (req, res, next) => {
   createSendToken(user, 200, res);
 });
 
+
+exports.protect = catchAsync(async (req, res, next) => {
+  
+    // 1.
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith('Bearer')
+    ) {
+      token = req.headers.authorization.split(' ')[1];
+  
+      if (!token) {
+        return next(new AppError('You not allowed', 401));
+      }
+    }
+   
+    // 2.
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    // console.log(decoded);
+  
+    // 3.
+    const freshUser = await User.findById(decoded.id);
+    if (!freshUser) {
+      return next(
+        new AppError('The Token belonging to this user does no longer exist', 401)
+      );
+    }
+        
+    req.user = freshUser;
+    next();
+  });
+  
 exports.getAllUsers = factory.getAll(User);
+exports.createUser = factory.createOne(User)
