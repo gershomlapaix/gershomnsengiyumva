@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const crypto = require("crypto");
 
 const transactionsSchema = new mongoose.Schema({
   meterNumber: {
@@ -9,9 +10,22 @@ const transactionsSchema = new mongoose.Schema({
   transactionAmount: {
     type: Number,
   },
+  token: {
+    type: String,
+    maxlength: 6,
+  },
 });
 
-// transactionsSchema.virtual('token').get()
+transactionsSchema.methods.createToken = function () {
+  let generated = crypto.randomBytes(8).toString("hex");
+
+  let transactionToken = parseInt(generated, 10);
+
+  this.token = transactionToken;
+  console.log(transactionToken);
+
+  return transactionToken;
+};
 
 const Transaction = mongoose.model("Transaction", transactionsSchema);
 

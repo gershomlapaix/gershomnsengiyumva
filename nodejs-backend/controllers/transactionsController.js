@@ -1,4 +1,3 @@
-const factory = require("./../controllers/handleFactory");
 const crypto = require("crypto");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
@@ -13,19 +12,34 @@ const signToken = (id) => {
   });
 };
 
+
 const createSendToken = (user, statusCode, res) => {
-  const token = signToken(user._id);
+    const token = signToken(user._id);
+  
+    // cookies enabling
+    const cookieOptions = {
+      expires: new Date(
+        Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+      ),
+      httponly: true, // can not be modified by the browser in any way
+    };
+  
+    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+    res.cookie('jwt', token, cookieOptions);
+  
+    // remove the password from the output
+    user.password = undefined;
+  
+    res.status(statusCode).json({
+      status: 'success',
+      token,
+      data: {
+        user,
+      },
+    });
+  };
 
-  res.status(statusCode).json({
-    status: "success",
-    token,
-    data: {
-      user,
-    },
-  });
-};
-
-exports.login = catchAsync(async (req, res, next) => {
+exports.makeTransaction = catchAsync(async (req, res, next) => {
   const { username, meterNumber } = req.body;
 
   // 1
@@ -43,5 +57,3 @@ exports.login = catchAsync(async (req, res, next) => {
   // 3
   createSendToken(user, 200, res);
 });
-
-exports.getAllUsers = factory.getAll(User);
