@@ -11,25 +11,24 @@ const transactionsSchema = new mongoose.Schema({
     type: Number,
   },
   token: {
-    type: String,
-    maxlength: 6,
+    type: Number,
+    select:true 
   },
   tokenExpires: Date,
 });
 
-transactionsSchema.methods.createToken = function () {
-  let generated = crypto.randomBytes(8).toString("hex");
-
-  let transactionToken = parseInt(generated, 10);
-
-  this.token = transactionToken;
-  console.log(transactionToken);
+transactionsSchema.pre("save", function (next) {
+  var hex, generated;
+  crypto.randomBytes(8, function (ex, buf) {
+    hex = buf.toString("hex");
+    generated = parseInt(hex, 16);
+    this.token = generated;    
+  });
 
   this.tokenExpires = Date.now() + (this.transactionAmount / 100) * 60 * 1000;
 
-  return transactionToken;
-};
-
+  next();
+});
 const Transaction = mongoose.model("Transaction", transactionsSchema);
 
 module.exports = Transaction;

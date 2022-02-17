@@ -16,12 +16,13 @@ exports.makeTransaction = catchAsync(async (req, res, next) => {
 
   const user = await User.findOne({ meterNumber: req.user.meterNumber });
 
-  console.log(user.createToken())
-  ;
+  if (!user) {
+    return next(new AppError("No user found", 404));
+  }
+
   const newTransaction = await Transaction.create({
     meterNumber,
     transactionAmount,
-    // token: user.createToken(),
   });
 
   res.status(200).json({
