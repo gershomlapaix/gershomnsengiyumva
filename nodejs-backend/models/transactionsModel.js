@@ -14,6 +14,7 @@ const transactionsSchema = new mongoose.Schema({
     type: String,
     maxlength: 6,
   },
+  tokenExpires: Date,
 });
 
 transactionsSchema.methods.createToken = function () {
@@ -23,6 +24,8 @@ transactionsSchema.methods.createToken = function () {
 
   this.token = transactionToken;
   console.log(transactionToken);
+
+  this.tokenExpires = Date.now() + (this.transactionAmount / 100) * 60 * 1000;
 
   return transactionToken;
 };
