@@ -12,20 +12,17 @@ const transactionsSchema = new mongoose.Schema({
   },
   token: {
     type: Number,
-    select:true 
+    select: true,
   },
   tokenExpires: Date,
 });
 
 transactionsSchema.pre("save", function (next) {
-  var hex, generated;
-  crypto.randomBytes(8, function (ex, buf) {
-    hex = buf.toString("hex");
-    generated = parseInt(hex, 16);
-    this.token = generated;    
-  });
-
-  this.tokenExpires = Date.now() + (this.transactionAmount / 100) * 60 * 1000;
+  this.token = parseInt(crypto.randomBytes(3).toString("hex"), 16);
+  this.tokenExpires =
+    this.transactionAmount < 100
+      ? Date.now
+      : Date.now() + (this.transactionAmount / 100) * 60 * 60 * 24 * 1000;
 
   next();
 });

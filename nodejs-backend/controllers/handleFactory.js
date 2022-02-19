@@ -4,6 +4,7 @@ const AppError = require("./../utils/AppError");
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.findByIdAndDelete(req.params.id);
+    // const doc = await Model.deleteMany()
 
     if (!doc) {
       return next(
@@ -43,16 +44,19 @@ exports.getOne = (Model) =>
     res.json({ status: "success", data: { doc } });
   });
 
-
-  exports.getAll = (Model) =>
+exports.getAll = (Model) =>
   catchAsync(async (req, res) => {
-   
     const docs = await Model.find();
 
-    res.status(200).json({
-      status: 'success',
-      results: docs.length,
-      data: { docs },
-    });
+    if (docs.length === 0) {
+      res.status(404).json({
+        message: "No data found",
+      });
+    } else {
+      res.status(200).json({
+        status: "success",
+        results: docs.length,
+        data: { docs },
+      });
+    }
   });
-

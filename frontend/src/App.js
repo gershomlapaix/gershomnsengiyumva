@@ -1,25 +1,53 @@
+import Reactm, { useState } from "react";
 import "./index.css";
+import Home from "./components/Home";
+import Transaction from "./components/Transaction";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import useToken from "./Hooks/UseToken";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 function App() {
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return <Login setToken={setToken} />;
+  }
   return (
-    <div className="App">
-      <div className="header">
-        <div class="header__logo-box">
-          <img src="https://cdn.dribbble.com/users/6225232/screenshots/15138375/media/90a48df2fc5ddef462542aafd1f9041c.jpg?compress=1&resize=400x300" alt="Logo" class="header__logo" />
-        </div>
-
-        <div class="header__text-box">
-          <h1 class="heading-primary">
-            <span class="heading-primary--main">Electricity</span>
-            <span class="heading-primary--sub">We provide you good services</span>
-          </h1>
-
-          <a href="#" class="btn btn--white btn--animated">
-            Get started
-          </a>
-        </div>
-      </div>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} exact />
+          <Route path="/register" element={<Register />} exact />
+          {!token ? (
+            <Route path="/" element={<Login />} exact />
+          ) : (
+            <>
+              <Route path="/transactions" element={<Transaction />} exact />
+              <Route path="/home" element={<Home />} exact />
+            </>
+          )}
+        </Routes>
+      </Router>
+    </>
   );
 }
 
+/*
+
+ <Route path="/getin" element={<Login setToken={setToken}/>} exact />
+
+ {!token ? (
+  <Login setToken={setToken} />
+) : (
+  <Route path="/home" element={<Home />} exact />
+)}
+
+{!token ? (
+  <Login setToken={setToken} />
+) : (
+  <Route path="/transactions" element={<Transaction />} exact />
+)}
+
+*/
 export default App;
