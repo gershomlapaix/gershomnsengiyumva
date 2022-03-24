@@ -2,7 +2,7 @@ FROM node:alpine
 
 RUN npm install --global nodemon
 
-WORKDIR /user/app
+WORKDIR /usr/app
 
 ENV PORT 8000
 
