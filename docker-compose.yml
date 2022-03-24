@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api:
+    build: ./nodejs-backend
+    ports:
+      - 8000:8000
+  web:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    environment:
+      DB_URL: mongodb://db/electricity
+  db:
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - electricity:/data/db
+volumes:
+  electricity:
