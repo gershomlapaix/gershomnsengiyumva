@@ -1,5 +1,17 @@
 version: '3'
 services:
+  nginx:
+    image: gershom/nginx
+    stdin_open: true
+    tty: true
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - electricityweb
   electricityapi:
     build: ./nodejs-backend
     ports:
