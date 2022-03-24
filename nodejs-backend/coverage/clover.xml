@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645283432190" clover="3.2.0">
-  <project timestamp="1645283432190" name="All files">
-    <metrics statements="140" coveredstatements="96" conditionals="30" coveredconditionals="5" methods="20" coveredmethods="8" elements="190" coveredelements="109" complexity="0" loc="140" ncloc="140" packages="5" files="10" classes="10"/>
+<coverage generated="1648134558700" clover="3.2.0">
+  <project timestamp="1648134558700" name="All files">
+    <metrics statements="144" coveredstatements="98" conditionals="30" coveredconditionals="5" methods="21" coveredmethods="8" elements="195" coveredelements="111" complexity="0" loc="144" ncloc="144" packages="5" files="10" classes="10"/>
     <package name="nodejs-backend">
       <metrics statements="25" coveredstatements="23" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="0"/>
-      <file name="app.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/app.js">
+      <file name="app.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/app.js">
         <metrics statements="25" coveredstatements="23" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -35,7 +35,7 @@
     </package>
     <package name="nodejs-backend.controllers">
       <metrics statements="78" coveredstatements="39" conditionals="24" coveredconditionals="3" methods="15" coveredmethods="5"/>
-      <file name="handleFactory.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/controllers/handleFactory.js">
+      <file name="handleFactory.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/controllers/handleFactory.js">
         <metrics statements="28" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="10" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -66,7 +66,7 @@
         <line num="52" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
       </file>
-      <file name="transactionsController.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/controllers/transactionsController.js">
+      <file name="transactionsController.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/controllers/transactionsController.js">
         <metrics statements="16" coveredstatements="11" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -77,15 +77,15 @@
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
       </file>
-      <file name="userController.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/controllers/userController.js">
+      <file name="userController.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/controllers/userController.js">
         <metrics statements="34" coveredstatements="14" conditionals="14" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -124,15 +124,19 @@
       </file>
     </package>
     <package name="nodejs-backend.models">
-      <metrics statements="13" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="User.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/models/User.js">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="17" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="User.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/models/User.js">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
       </file>
-      <file name="transactionsModel.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/models/transactionsModel.js">
+      <file name="transactionsModel.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/models/transactionsModel.js">
         <metrics statements="9" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -147,7 +151,7 @@
     </package>
     <package name="nodejs-backend.routes">
       <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="transactionRoutes.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/routes/transactionRoutes.js">
+      <file name="transactionRoutes.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/routes/transactionRoutes.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -158,7 +162,7 @@
         <line num="12" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
-      <file name="userRoutes.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/routes/userRoutes.js">
+      <file name="userRoutes.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/routes/userRoutes.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -171,7 +175,7 @@
     </package>
     <package name="nodejs-backend.utils">
       <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
-      <file name="AppError.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/utils/AppError.js">
+      <file name="AppError.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/utils/AppError.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -180,7 +184,7 @@
         <line num="9" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>
-      <file name="catchAsync.js" path="/home/rca/Documents/Gersh/Lessons/Devops/Electricity-billing/nodejs-backend/utils/catchAsync.js">
+      <file name="catchAsync.js" path="/home/rca/Desktop/gershomnsengiyumva/nodejs-backend/utils/catchAsync.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="7" type="stmt"/>

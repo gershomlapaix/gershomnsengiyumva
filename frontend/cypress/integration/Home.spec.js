@@ -3,7 +3,7 @@ describe("Should come to login", () => {
     cy.visit("http://localhost:3000/home");
 
     cy.get("input#username").type("gershom");
-    cy.get("input#meter").type("384628");
+    cy.get("input#meter").type("17939");
 
     cy.get("button").click();
     cy.url().should("eq", "http://localhost:3000/home");
