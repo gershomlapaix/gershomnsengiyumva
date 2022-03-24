@@ -8,14 +8,12 @@ exports.getAllMadeTransactions = factory.getAll(Transaction);
 exports.deleteTransaction = factory.deleteOne(Transaction);
 
 exports.makeTransaction = catchAsync(async (req, res, next) => {
-  const { transactionAmount, meterNumber } = req.body;
-  // const meterNumber = req.user.meterNumber;
+  const { transactionAmount, meterNumber } = req.body;  
 
   if (!transactionAmount) {
     return next(new AppError("Please provide transactionAmount!", 400));
   }
-
-  // const user = await User.findOne({ meterNumber: req.user.meterNumber });
+  
   const user = await User.findOne({ meterNumber });
 
   if (!user) {
